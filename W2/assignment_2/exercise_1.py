@@ -3,7 +3,7 @@
 def contains_only_unique_chars(s: str) -> bool:
     """Evaluate string whether it contains only unique characters.
     
-    :param s: arg1
+    :param s: string to be evaluated
     :type s: str
 
     :rtype: bool
@@ -17,7 +17,7 @@ def contains_only_unique_chars(s: str) -> bool:
 def substrings(s: str) -> list:
     """Create a list of unique substrings from `s`
     
-    :param s: arg1
+    :param s: string for substring creation
     :type s: str
     
     :rtype: list
@@ -36,7 +36,7 @@ def substrings(s: str) -> list:
 def longest_nonrepeating_substring(l: list) -> str:
     """Find and return the longest non-repeating substring in a list of strings
     
-    :param l: arg1
+    :param l: list of substrings
     :type l: list
     
     :rtype: str
