@@ -1,27 +1,22 @@
-# Place your answers here.
-
 def contains_only_unique_chars(s: str) -> bool:
-    """Evaluate string whether it contains only unique characters.
+    """Evaluate string whether it consists of unique characters only.
     
     :param s: string to be evaluated
     :type s: str
 
     :rtype: bool
-    :return: True if `s` contains only unique characters, else False
-    """ 
-    for i, cur_char in enumerate(s):
-        if (cur_char in s[i + 1:]):
-            return False
-    return True
+    :return: True if `s` consists unique characters only, else False
+    """
+    return all([False if cur_char in s[i + 1:] else True for i, cur_char in enumerate(s)])
 
 def substrings(s: str) -> list:
-    """Create a list of unique substrings from `s`
+    """return a list of unique substrings of `s`
     
-    :param s: string for substring creation
+    :param s: string of which substrings are made of
     :type s: str
     
     :rtype: list
-    :return: list of substrings
+    :return: list of unique substrings
     """
     list_of_substrings = []
     str_len = len(s)
@@ -31,10 +26,11 @@ def substrings(s: str) -> list:
             substring = s[start:end]
             if (substring not in list_of_substrings):
                 list_of_substrings.append(substring)
+    
     return list_of_substrings
     
 def longest_nonrepeating_substring(l: list) -> str:
-    """Find and return the longest non-repeating substring in a list of strings
+    """Find and return the longest string in list consisting of unique characters only
     
     :param l: list of substrings
     :type l: list
