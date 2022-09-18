@@ -1,10 +1,10 @@
 def ln2_approximation(N):
     """Return an approximation for natural logarithm of 2 for `N` terms
     
-    :param N: an integer, it tells the iteration count
+    :param N: iteration count, defines the number of iteration for the approximation
     :type N: int
     
-    :rtype: int|float
+    :rtype: float
     :return: approximation of natural logarithm of 2
     """
     ln2_approximate_value = 0
