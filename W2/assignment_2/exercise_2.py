@@ -9,5 +9,5 @@ def ln2_approximation(N):
     """
     ln2_approximate_value = 0
     for k in range(1, N + 1):
-        ln2_approximate_value += 1 / ((3 ** k )* k) + 1 / ((4 ** k )* k)
+        ln2_approximate_value += 1 / ((3 ** k) * k) + 1 / ((4 ** k) * k)
     return ln2_approximate_value
