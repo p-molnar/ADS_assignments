@@ -20,13 +20,16 @@ def substrings(s: str) -> list:
 
 
 def longest_nonrepeating_substring(l: list) -> str:
-    """Find and return the longest unique characters only string of list
+    """Return the longest non-repeating string of a list of substrings
+        If there are multiple equal length non-repeating substrings,
+        the last longest non-repeating substring  of the list
+        is returned.
 
     :param l: list of substrings
     :type l: list
 
     :rtype: str
-    :return: longest non-repeating string
+    :return: last evaluated longest non-repeating substring
     """
     longest_substring = ""
 
@@ -34,7 +37,7 @@ def longest_nonrepeating_substring(l: list) -> str:
     for cur_substr in l:
         # check if `cur_substr` contains unique characters only
         is_non_repeating = len(cur_substr) == len("".join(set(cur_substr)))
-        if is_non_repeating and len(cur_substr) > len(longest_substring):
+        if is_non_repeating and len(cur_substr) >= len(longest_substring):
             longest_substring = cur_substr
 
     return longest_substring
