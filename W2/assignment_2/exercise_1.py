@@ -1,21 +1,21 @@
 def substrings(s: str) -> list:
     """return a list of unique substrings of `s`
 
-    :param s: string of which substrings are made of
+    :param s: string of which substrings are made out of
     :type s: str
 
     :rtype: list
-    :return: list of unique substrings
+    :return: list of substrings
     """
     list_of_substrings = []
-    str_len = len(s)
 
-    for start in range(str_len):
-        for end in range(start + 1, str_len + 1):
-            substring = s[start:end]
-            if substring not in list_of_substrings:
-                list_of_substrings.append(substring)
+    # iterate through string and slice it in each index position
+    for start in range(len(s)):
+        for end in range(start + 1, len(s) + 1):
+            list_of_substrings.append(s[start:end])
 
+    # remove duplicates
+    list_of_substrings = list(set(list_of_substrings))
     return list_of_substrings
 
 
