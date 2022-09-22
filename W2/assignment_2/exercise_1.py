@@ -21,15 +21,17 @@ def substrings(s: str) -> list:
 
 def longest_nonrepeating_substring(l: list) -> str:
     """Return the longest non-repeating string of a list of substrings
-        If there are multiple equal length non-repeating substrings,
-        the last longest non-repeating substring  of the list
-        is returned.
-
+    
     :param l: list of substrings
     :type l: list
 
     :rtype: str
     :return: last evaluated longest non-repeating substring
+
+    .. note:: 
+        If there are multiple equal length non-repeating substrings, 
+        the last longest non-repeating substring of the list 
+        is returned.
     """
     longest_substring = ""
 
