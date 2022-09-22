@@ -1,6 +1,6 @@
 def ln2_approximation(N):
     """Return an approximation for natural logarithm of 2
-        iterated over `N` terms
+    iterated over `N` terms
     
     :param N: iteration count, defines the number of terms of the series
     :type N: int

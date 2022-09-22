@@ -1,5 +1,5 @@
 def symbol_to_value(c):
-    """Return decimal value of Roman symbol
+    """Return decimal value of a single Roman number
     
     :param c: char representing a Roman symbol
     :type c: str
@@ -19,19 +19,20 @@ def symbol_to_value(c):
         "D": 500,
         "M": 1000
     }
-    
+
     return roman_symbols[c] if c in roman_symbols else 0
 
-def roman_to_value(roman, ignore_sub_rule = False):
-    """Return Roman number to decimal number
+
+def roman_to_value(roman, ignore_sub_rule=False):
+    """Return decimal value of a Roman number
     
-    :param roman: sequence of roman symbols, representing a Roman number
+    :param roman: sequence of Roman symbols, representing a Roman number
     :type roman: string
     :param ignore_sub_rule: defines if subtraction rule applies, defaults to False
     :type ignore_sub_rule: bool
     
-    :return: decimal value of a Roman number
     :rtype: int
+    :return: decimal value of a Roman number
     """
     roman_decimal_value = 0
 
