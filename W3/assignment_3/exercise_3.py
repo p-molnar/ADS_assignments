@@ -13,5 +13,3 @@ def convert_data_percentages(data, col_id):
 		data_percentage.append(cols_excl + [int(col) / population for col in cols_incl])
 		
 	return data_percentage
-
-print(convert_data_percentages(data, col_id=2))
