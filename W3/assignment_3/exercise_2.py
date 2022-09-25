@@ -21,9 +21,9 @@ def get_group(data, headers, condition):
 	elif isinstance(condition, dict): # do error checking!
 		data_selection = data.copy()
 
-		for k, v in condition.items():
-			col_idx = headers.index(k)
-			data_selection = filter_data(data_selection, col_idx, v)
+		for col_name, cond in condition.items():
+			col_idx = headers.index(col_name)
+			data_selection = filter_data(data_selection, col_idx, cond)
 
 	return data_selection
 
