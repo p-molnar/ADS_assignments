@@ -16,16 +16,17 @@ def filter_data(data, col_idx, condition):
 def get_group(data, headers, condition):	
 
 	if isinstance(condition, str) or isinstance(condition, int):
-		data_selection = get_by_axis(data, headers, condition)
+		data_group = get_by_axis(data, headers, condition)
 
 	elif isinstance(condition, dict): # do error checking!
-		data_selection = data.copy()
+
+		data_group = data.copy()
 
 		for col_name, cond in condition.items():
 			col_idx = headers.index(col_name)
-			data_selection = filter_data(data_selection, col_idx, cond)
+			data_group = filter_data(data_group, col_idx, cond)
 
-	return data_selection
+	return data_group
 
 data, headers = load_data_from_csv("kwb-2019.csv")
 # print(get_group(data, headers, {'men': ["581", "17703"]}))
