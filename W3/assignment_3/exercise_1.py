@@ -1,8 +1,4 @@
-from ast import excepthandler
-from email import header
-from shutil import ExecError
 from data_loader import *
-
 
 def get_by_axis(data, headers, element_id):
 	"""Return row or column values based on `element_id`
@@ -31,7 +27,7 @@ def get_by_axis(data, headers, element_id):
 	elif isinstance(element_id, str):
 		col_list = []
 		if element_id not in range(n_row):
-			raise IndexError(f"no column named as {element_id}")
+			raise IndexError(f"no column named as '{element_id}'")
 		col_idx = headers.index(element_id)
 		
 		for row in data:
@@ -42,4 +38,4 @@ def get_by_axis(data, headers, element_id):
 
 
 data, headers = load_data_from_csv("kwb-2019.csv")
-print(get_by_axis(data, headers, ""))
+# print(get_by_axis(data, headers, "region"))
