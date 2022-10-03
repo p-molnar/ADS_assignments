@@ -24,6 +24,6 @@ def convert_data_percentages(data, col_id):
 
     for row in converted_data:
         whole = int(row[col_id])
-        row[col_id + 1 :] = map(lambda part: int(part) / whole, row[col_id + 1:])
+        row[col_id + 1 :] = map(lambda part: int(part) / whole, row[col_id + 1 :])
 
     return converted_data

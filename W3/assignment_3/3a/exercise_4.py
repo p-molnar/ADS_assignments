@@ -1,7 +1,8 @@
 from exercise_3 import *
 
+
 def sort_table(data, headers, condition, k=10, descending=True):
-	"""Return a sorted table
+    """Return a sorted table
 
 	:param data: body of a csv file
 	:type data: list
@@ -18,18 +19,19 @@ def sort_table(data, headers, condition, k=10, descending=True):
 	:rtype: list|None
 	:return: a sorted table
 	"""
-	# parameter validation - index out of range
-	if k < 0 or k >= len(data) or condition not in headers:
-		return None
+    # parameter validation - index out of range
+    if k < 0 or k >= len(data) or condition not in headers:
+        return None
 
-	# get column index based on its name
-	col_idx = headers.index(condition)
+    # get column index based on its name
+    col_idx = headers.index(condition)
 
-	# sort table according to a specific column
-	sorted_data = sorted(data, key=lambda row: row[col_idx], reverse=descending)
+    # sort table according to a specific column
+    sorted_data = sorted(data, key=lambda row: row[col_idx], reverse=descending)
 
-	# return the first k results
-	return sorted_data[:k]
+    # return the first k results
+    return sorted_data[:k]
+
 
 # data_1 = convert_data_percentages(data, col_id=2)
 # print(sort_table(data_1, headers, condition="married", k=5, descending=True))

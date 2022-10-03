@@ -1,7 +1,8 @@
 from exercise_1 import *
 
+
 def filter_data(data, col_idx, condition):
-	"""Filter out rows from `data` based on a single `condition`
+    """Filter out rows from `data` based on a single `condition`
 
 	:param data: body of a csv file
 	:type data: list
@@ -13,25 +14,32 @@ def filter_data(data, col_idx, condition):
 	:rtype: list|None
 	:return: rows of `data` where the `condition` was satisfied
 	"""
-	data_selection = []
+    data_selection = []
 
-	# if filter is of type list
-	if isinstance(condition, list):	
-		# filter out rows 
-		for col_val in condition:
-			data_selection += list(filter(lambda row: row[col_idx] == col_val, data))
+    #  if filter is of type list
+    if isinstance(condition, list):
+        # filter out rows
+        for col_val in condition:
+            data_selection += list(filter(lambda row: row[col_idx] == col_val, data))
 
-	# if filter is of type typle
-	elif isinstance(condition, tuple):
-		# unpack tuple
-		lower_bound, upper_bound = condition 
-		
-		data_selection += list(filter(lambda row: int(row[col_idx]) > lower_bound and int(row[col_idx]) < upper_bound, data))
+    # if filter is of type typle
+    elif isinstance(condition, tuple):
+        # unpack tuple
+        lower_bound, upper_bound = condition
 
-	return data_selection
+        data_selection += list(
+            filter(
+                lambda row: int(row[col_idx]) > lower_bound
+                and int(row[col_idx]) < upper_bound,
+                data,
+            )
+        )
 
-def get_group(data, headers, condition):	
-	"""Retrieve a subset of data based on a collection of condition
+    return data_selection
+
+
+def get_group(data, headers, condition):
+    """Retrieve a subset of data based on a collection of condition
 
 	:param data: body of a csv file
 	:type data: list
@@ -45,26 +53,27 @@ def get_group(data, headers, condition):
 	:return: a group of data where the condition is satisfied
 	"""
 
-	# check if condition is of type str, or int
-	if isinstance(condition, str) or isinstance(condition, int):
-		filtered_data = get_by_axis(data, headers, condition)
-	
-	elif isinstance(condition, dict):
-		
-		# preserve the original data by creating a copy
-		filtered_data = data.copy()
+    # check if condition is of type str, or int
+    if isinstance(condition, str) or isinstance(condition, int):
+        filtered_data = get_by_axis(data, headers, condition)
 
-		# iterate through conditions
-		for col_name, rule in condition.items():
-			# error handling - invalid column name
-			if col_name not in headers:
-				return None
+    elif isinstance(condition, dict):
 
-			# get column id based on column name
-			col_idx = headers.index(col_name)
-			filtered_data = filter_data(filtered_data, col_idx, rule)
+        # preserve the original data by creating a copy
+        filtered_data = data.copy()
 
-	return filtered_data
+        # iterate through conditions
+        for col_name, rule in condition.items():
+            # error handling - invalid column name
+            if col_name not in headers:
+                return None
+
+            # get column id based on column name
+            col_idx = headers.index(col_name)
+            filtered_data = filter_data(filtered_data, col_idx, rule)
+
+    return filtered_data
+
 
 data, headers = load_data_from_csv("kwb-2019.csv")
 # print(get_group(data, headers, {'men': ["581", "17703"]}))
