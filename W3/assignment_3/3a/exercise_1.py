@@ -1,4 +1,3 @@
-from tkinter import W
 from data_loader import *
 
 def get_by_axis(data, headers, element_id):

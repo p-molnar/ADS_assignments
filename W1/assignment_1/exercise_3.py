@@ -1,5 +1,4 @@
 import os
-from tkinter import W
 
 hangman_frame = [
 	"""
