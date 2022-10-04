@@ -1,7 +1,16 @@
 import numpy as np
 from exercise_1 import *
+from city_map import *
 
 def pretty_printer(route_map):
+    """Prints a `route_map` in a pretty format
+
+    :param route_map: a route map
+    :type route_map: numpy.ndarray
+
+    :return: None
+    :rtype: None
+    """
     
     char_set = {
         -1: '❌',
@@ -22,8 +31,6 @@ def pretty_printer(route_map):
         arr.append(row)
 
     print(np.array(arr))
-
     return None
 
-print("\n")
 pretty_printer(mark_parking_locations(city_map))
