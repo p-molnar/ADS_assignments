@@ -4,16 +4,16 @@ from exercise_1 import *
 def filter_data(data, col_idx, condition):
     """Filter out rows from `data` based on a single `condition`
 
-	:param data: body of a csv file
-	:type data: list
-	:param col_idx: column identifier, defines the column against which condition is tested
-	:type col_idx: int
-	:param condition: a collection of rules based on which the filteration is applied
-	:type condition: dict
+    :param data: body of a csv file
+    :type data: list
+    :param col_idx: column identifier, defines the column against which condition is tested
+    :type col_idx: int
+    :param condition: a collection of rules based on which the filteration is applied
+    :type condition: dict
 
-	:rtype: list|None
-	:return: rows of `data` where the `condition` was satisfied
-	"""
+    :rtype: list|None
+    :return: rows of `data` where the `condition` was satisfied
+    """
     data_selection = []
 
     #  if filter is of type list
@@ -41,17 +41,17 @@ def filter_data(data, col_idx, condition):
 def get_group(data, headers, condition):
     """Retrieve a subset of data based on a collection of condition
 
-	:param data: body of a csv file
-	:type data: list
-	:param headers: headers of a csv file
-	:type headers: list
-	:param condition: a collection of filteration condition based on 
-		which the a group of data to be created
-	:type condition: dict
+    :param data: body of a csv file
+    :type data: list
+    :param headers: headers of a csv file
+    :type headers: list
+    :param condition: a collection of filteration condition based on 
+        which the a group of data to be created
+    :type condition: dict
 
-	:rtype: list|None
-	:return: a group of data where the condition is satisfied
-	"""
+    :rtype: list|None
+    :return: a group of data where the condition is satisfied
+    """
 
     # check if condition is of type str, or int
     if isinstance(condition, str) or isinstance(condition, int):
