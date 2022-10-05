@@ -2,6 +2,7 @@ PARKING_LOT = -1
 BUILDING = 0
 EMPTY = 1
 
+
 def mark_parking_locations(city_map):
     """Mark the parking lots on a city map
 
@@ -21,5 +22,5 @@ def mark_parking_locations(city_map):
                 if x - 1 in range(len(city_map[y])):
                     city_map[y][x - 1] = PARKING_LOT
                 if x + 1 in range(len(city_map[y])):
-                    city_map[y][x + 1] = PARKING_LOT 
+                    city_map[y][x + 1] = PARKING_LOT
     return city_map

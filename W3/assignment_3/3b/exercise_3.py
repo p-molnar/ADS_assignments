@@ -3,6 +3,7 @@ from exercise_1 import *
 from exercise_2 import *
 from city_map import *
 
+
 def pretty_printer(route_map):
     """Print a `route_map` in a prettified format
 
@@ -12,19 +13,19 @@ def pretty_printer(route_map):
     :return: None
     :rtype: None
     """
-    
+
     char_set = {
-        -1: '❌',
-        0: '🏢', 
-        1: '🛣️', 
-        10: '⬆️',
-        20: '⬇️',
-        30: '⬅️',
-        40: '➡️',
+        -1: "❌",
+        0: "🏢",
+        1: "🛣️",
+        10: "⬆️",
+        20: "⬇️",
+        30: "⬅️",
+        40: "➡️",
     }
-    
+
     arr = []
-    
+
     for i in range(len(route_map)):
         row = []
         for j in range(len(route_map[0])):
@@ -33,5 +34,6 @@ def pretty_printer(route_map):
 
     print(np.array(arr))
     return None
+
 
 pretty_printer(find_route(mark_parking_locations(city_map), (0, 2), []))
