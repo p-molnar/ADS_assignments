@@ -1,9 +1,10 @@
 import numpy as np
 from exercise_1 import *
+from exercise_2 import *
 from city_map import *
 
 def pretty_printer(route_map):
-    """Prints a `route_map` in a pretty format
+    """Print a `route_map` in a prettified format
 
     :param route_map: a route map
     :type route_map: numpy.ndarray
@@ -33,4 +34,4 @@ def pretty_printer(route_map):
     print(np.array(arr))
     return None
 
-pretty_printer(mark_parking_locations(city_map))
+pretty_printer(find_route(mark_parking_locations(city_map), (0, 2), []))

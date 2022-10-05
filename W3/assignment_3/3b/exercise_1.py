@@ -1,3 +1,7 @@
+PARKING_LOT = -1
+BUILDING = 0
+EMPTY = 1
+
 def mark_parking_locations(city_map):
     """Mark the parking lots on a city map
 
@@ -8,15 +12,14 @@ def mark_parking_locations(city_map):
     :return: the marked city map
     """
     for y, row in enumerate(city_map):
-        for x, el in enumerate(row):
-            if el == 0:
+        for x, col in enumerate(row):
+            if col == BUILDING:
                 if y - 1 in range(len(city_map)):
-                    city_map[y - 1][x] = -1
+                    city_map[y - 1][x] = PARKING_LOT
                 if y + 1 in range(len(city_map)):
-                    city_map[y + 1][x] = -1
+                    city_map[y + 1][x] = PARKING_LOT
                 if x - 1 in range(len(city_map[y])):
-                    city_map[y][x - 1] = -1
+                    city_map[y][x - 1] = PARKING_LOT
                 if x + 1 in range(len(city_map[y])):
-                    city_map[y][x + 1] = -1
-            
+                    city_map[y][x + 1] = PARKING_LOT 
     return city_map
