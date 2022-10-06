@@ -27,7 +27,7 @@ def filter_data(data, col_idx, condition):
         # check if all values in the given column are of numeric type
         if not all([val[col_idx].isnumeric() for val in data]):
             return None
-        
+
         # unpack tuple
         lower_bound, upper_bound = condition
 
@@ -77,7 +77,6 @@ def get_group(data, headers, condition):
             filtered_data = filter_data(filtered_data, col_idx, rule)
 
     return filtered_data
-
 
 
 data, headers = load_data_from_csv("kwb-2019.csv")

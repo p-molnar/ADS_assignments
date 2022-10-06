@@ -31,4 +31,3 @@ def sort_table(data, headers, condition, k=10, descending=True):
 
     # return the first k results
     return sorted_data[:k]
-
