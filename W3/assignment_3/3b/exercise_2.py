@@ -1,6 +1,3 @@
-from exercise_1 import *
-from city_map import *
-
 direction = {"up": 10, "down": 20, "left": 30, "right": 40}
 
 
@@ -48,16 +45,16 @@ def path_finder_backtracker(map, start_loc, visited_locs):
     if is_valid_coordinate(y, x, dim) and map[x][y] == EMPTY:
         visited_locs.append(start_loc)
         map[x][y] = direction["up"]
-        if path_finder_backtracker(map, (x - 1, y), visited_locs):
+        if path_finder_backtracker(map, (x - 1, y), visited_locs) == True:
             return True
         map[x][y] = direction["down"]
-        if path_finder_backtracker(map, (x + 1, y), visited_locs):
+        if path_finder_backtracker(map, (x + 1, y), visited_locs) == True:
             return True
         map[x][y] = direction["left"]
-        if path_finder_backtracker(map, (x, y - 1), visited_locs):
+        if path_finder_backtracker(map, (x, y - 1), visited_locs) == True:
             return True
         map[x][y] = direction["right"]
-        if path_finder_backtracker(map, (x, y + 1), visited_locs):
+        if path_finder_backtracker(map, (x, y + 1), visited_locs) == True:
             return True
         map[x][y] = EMPTY
     return False
@@ -79,30 +76,7 @@ def find_route(route_map, current_loc, visited_locs):
     # duplicate map to avoid overriding the original map
     solved_map = route_map.copy()
 
+    # start backtracker, return if there is solution, else return None
     if path_finder_backtracker(solved_map, current_loc, visited_locs):
         return solved_map
     return None
-
-
-city_map = np.array(
-    [
-        [1, 1, 1, 1, 1],
-        [1, 0, 1, 1, 1],
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 0],
-        [1, 1, 1, 0, 1],
-    ]
-)
-
-marked_map = mark_parking_locations(city_map)
-
-# marked_map = np.array([
-# 	[ 1, 1, 0, ],
-# 	[ 1, 1, 1, ],
-# 	[ 1, 0, 1, ]])
-# print(marked_map)
-
-# for i in range(12):
-# 	print(f"iter: (0, {i})")
-# print(find_route(marked_map, (0, i), []))
-print(find_route(marked_map, (2, 0), []))
