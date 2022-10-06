@@ -22,8 +22,12 @@ def filter_data(data, col_idx, condition):
         for col_val in condition:
             data_selection += list(filter(lambda row: row[col_idx] == col_val, data))
 
-    # if filter is of type typle
+    # if filter is of type tuple
     elif isinstance(condition, tuple):
+        # check if all values in the given column are of numeric type
+        if not all([val[col_idx].isnumeric() for val in data]):
+            return None
+        
         # unpack tuple
         lower_bound, upper_bound = condition
 
@@ -60,7 +64,7 @@ def get_group(data, headers, condition):
     elif isinstance(condition, dict):
 
         # preserve the original data by creating a copy
-        filtered_data = data.copy()
+        filtered_data = data[:]
 
         # iterate through conditions
         for col_name, rule in condition.items():
@@ -68,11 +72,12 @@ def get_group(data, headers, condition):
             if col_name not in headers:
                 return None
 
-            # get column id based on column name
+            # get column index position based on column name
             col_idx = headers.index(col_name)
             filtered_data = filter_data(filtered_data, col_idx, rule)
 
     return filtered_data
+
 
 
 data, headers = load_data_from_csv("kwb-2019.csv")

@@ -20,7 +20,7 @@ def sort_table(data, headers, condition, k=10, descending=True):
     :return: a sorted table
     """
     # parameter validation - index out of range
-    if k < 0 or k >= len(data) or condition not in headers:
+    if k not in range(len(data)) or condition not in headers:
         return None
 
     # get column index based on its name
@@ -32,6 +32,3 @@ def sort_table(data, headers, condition, k=10, descending=True):
     # return the first k results
     return sorted_data[:k]
 
-
-# data_1 = convert_data_percentages(data, col_id=2)
-# print(sort_table(data_1, headers, condition="married", k=5, descending=True))

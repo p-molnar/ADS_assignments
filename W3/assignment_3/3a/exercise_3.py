@@ -15,15 +15,13 @@ def convert_data_percentages(data, col_id):
     :return: converted data
     """
     # error handling - index out of range
-    if col_id < 0 or col_id >= len(data[0]):
+    if col_id not in range(len(data[0])) or not all([row[col_id].isnumeric() for row in data]):
         return None
-
-    # create a copy of data to preserve
-    # the original data from in-place changes
-    converted_data = data.copy()
-
-    for row in converted_data:
+    
+    converted_data = []
+    
+    for row_idx, row in enumerate(data):
         whole = int(row[col_id])
-        row[col_id + 1 :] = map(lambda part: int(part) / whole, row[col_id + 1 :])
+        converted_data.append(row[:col_id + 1] + list(map(lambda part: int(part) / whole, row[col_id + 1 :])))
 
     return converted_data
