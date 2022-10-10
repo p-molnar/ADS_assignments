@@ -1,6 +1,3 @@
-from exercise_1 import *
-
-
 def filter_data(data, col_idx, condition):
     """Filter out rows from `data` based on a single `condition`
 
@@ -16,7 +13,7 @@ def filter_data(data, col_idx, condition):
     """
     data_selection = []
 
-    #  if filter is of type list
+    # if filter is of type list
     if isinstance(condition, list):
         # filter out rows
         for col_val in condition:
@@ -77,9 +74,3 @@ def get_group(data, headers, condition):
             filtered_data = filter_data(filtered_data, col_idx, rule)
 
     return filtered_data
-
-
-data, headers = load_data_from_csv("kwb-2019.csv")
-# print(get_group(data, headers, {'men': ["581", "17703"]}))
-# print(get_group(data, headers, {'region': ["Amsterdam", "Utrecht"]}))
-# print(get_group(data, headers, {'region': ["Rotterdam", "Utrecht"], 'population': (500000, 700000)}))

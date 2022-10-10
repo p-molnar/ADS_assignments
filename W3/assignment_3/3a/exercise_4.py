@@ -1,6 +1,3 @@
-from exercise_3 import *
-
-
 def sort_table(data, headers, condition, k=10, descending=True):
     """Return a sorted table
 

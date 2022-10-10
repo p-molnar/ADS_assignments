@@ -1,6 +1,3 @@
-from exercise_2 import *
-
-
 def convert_data_percentages(data, col_id):
     """Convert row values to percentages, whereby the whole of
      the percentage is referred to as by `col_id`
@@ -24,6 +21,7 @@ def convert_data_percentages(data, col_id):
 
     for row_idx, row in enumerate(data):
         whole = int(row[col_id])
+        
         converted_data.append(
             row[: col_id + 1]
             + list(map(lambda part: int(part) / whole, row[col_id + 1 :]))

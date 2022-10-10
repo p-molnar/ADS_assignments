@@ -1,6 +1,3 @@
-from data_loader import *
-
-
 def get_by_axis(data, headers, element_id):
     """Return row or column values of `data` based on `element_id`
 
@@ -47,7 +44,3 @@ def get_by_axis(data, headers, element_id):
         return column
 
     return None
-
-
-data, headers = load_data_from_csv("kwb-2019.csv")
-# print(get_by_axis(data, headers, 355))
