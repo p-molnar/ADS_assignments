@@ -1,5 +1,4 @@
-direction = {"up": 10, "down": 20, "left": 30, "right": 40}
-
+import * from vars
 
 def is_valid_coordinate(x, y, map_dimension):
     """Logical test whether a given pair of coordinates are within the boundaries of the map
@@ -14,10 +13,10 @@ def is_valid_coordinate(x, y, map_dimension):
     :rtype: Bool
     :return: True if the pair of coordinate is within the boundaries of the map, else False 
     """
-    return y in range(map_dimension["HEIGHT"]) and x in range(map_dimension["WIDTH"])
+    return y in range(map_dimension["height"]) and x in range(map_dimension["width"])
 
 
-def path_finder_backtracker(map, start_loc, visited_locs):
+def path_finder_backtracker(marked_map, start_loc, visited_locs):
     """The function recursively finds and marks the first solution
     of the map
 
@@ -33,30 +32,36 @@ def path_finder_backtracker(map, start_loc, visited_locs):
     either if the map is solved or a given direction is valid in a given 
     `start_loc`, 0 if the direction is invalid, or the map has no solution
     """
-    x, y = start_loc
+    
+
     dim = {
-        "WIDTH": len(map[0]),
-        "HEIGHT": len(map),
+        "width": len(marked_map[0]),
+        "height": len(marked_map),
     }
 
-    if y == dim["WIDTH"] - 1 and map[x][y] == EMPTY:
+    # unpack start_loc into x and y coordinates respectively
+    x, y = start_loc
+    
+    # recursive base condition
+    if y == dim["width"] - 1 and marked_map[x][y] == space_type["empty"]:
         return True
 
-    if is_valid_coordinate(y, x, dim) and map[x][y] == EMPTY:
+    if is_valid_coordinate(y, x, dim) and marked_map[x][y] == space_type["empty"]:
         visited_locs.append(start_loc)
-        map[x][y] = direction["up"]
-        if path_finder_backtracker(map, (x - 1, y), visited_locs) == True:
+        marked_map[x][y] = direction["up"]
+        if path_finder_backtracker(marked_map, (x - 1, y), visited_locs) == True:
             return True
-        map[x][y] = direction["down"]
-        if path_finder_backtracker(map, (x + 1, y), visited_locs) == True:
+        marked_map[x][y] = direction["down"]
+        if path_finder_backtracker(marked_map, (x + 1, y), visited_locs) == True:
             return True
-        map[x][y] = direction["left"]
-        if path_finder_backtracker(map, (x, y - 1), visited_locs) == True:
+        marked_map[x][y] = direction["left"]
+        if path_finder_backtracker(marked_map, (x, y - 1), visited_locs) == True:
             return True
-        map[x][y] = direction["right"]
-        if path_finder_backtracker(map, (x, y + 1), visited_locs) == True:
+        marked_map[x][y] = direction["right"]
+        if path_finder_backtracker(marked_map, (x, y + 1), visited_locs) == True:
             return True
-        map[x][y] = EMPTY
+        marked_map[x][y] = space_type["empty"]
+    
     return False
 
 

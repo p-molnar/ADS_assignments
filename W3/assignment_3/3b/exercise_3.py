@@ -1,3 +1,5 @@
+import * from vars
+
 def pretty_printer(route_map):
     """Print a solved `route_map` in a prettified format
 
