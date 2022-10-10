@@ -1,4 +1,4 @@
-import * from vars
+from vars import *
 
 def mark_parking_locations(city_map):
     """Mark the parking lots on a city map

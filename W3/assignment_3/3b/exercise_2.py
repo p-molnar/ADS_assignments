@@ -1,4 +1,4 @@
-import * from vars
+from vars import *
 
 def is_valid_coordinate(x, y, map_dimension):
     """Logical test whether a given pair of coordinates are within the boundaries of the map
